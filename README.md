@@ -18,6 +18,8 @@ A full-stack web application to log and track your DSA/competitive programming p
 **Database:** SQLite
 
 ## Project Structure
+
+```
 ├── cmd/server        # Entry point
 ├── database          # DB connection and config
 ├── frontend          # HTML, CSS, JS files
@@ -26,6 +28,7 @@ A full-stack web application to log and track your DSA/competitive programming p
 ├── models            # Database models
 ├── repository        # Database query logic
 └── routes            # Route definitions
+```
 ## Setup and Running Locally
 
 1. Clone the repository
