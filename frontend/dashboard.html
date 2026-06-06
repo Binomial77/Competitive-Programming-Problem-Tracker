@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem Tracker — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="dashboard">
+
+    <!-- Top bar -->
+    <div class="topbar">
+      <div class="topbar-brand">
+        <span class="brand">Problem Tracker</span>
+        <span class="brand-sub">DSA Practice Log</span>
+      </div>
+      <button class="btn btn-secondary btn-sm" onclick="logout()">Sign out</button>
+    </div>
+
+    <!-- Add problem -->
+    <div class="section">
+      <div class="section-header">
+        <h2>Log a problem</h2>
+        <span class="section-num">01</span>
+      </div>
+
+      <div class="add-form">
+        <div class="field">
+          <label for="name">Problem name</label>
+          <input id="name" type="text" placeholder="Two Sum">
+        </div>
+
+        <div class="field">
+          <label for="url">Problem URL</label>
+          <input id="url" type="url" placeholder="https://leetcode.com/…">
+        </div>
+
+        <div class="field">
+          <label for="difficulty">Difficulty rating</label>
+          <input id="difficulty" type="number" min="0" max="4000" placeholder="e.g. 1400">
+        </div>
+
+        <div class="field field-full">
+          <label for="approach">Approach &amp; notes</label>
+          <textarea id="approach" placeholder="Describe your approach, time complexity, edge cases…"></textarea>
+        </div>
+
+        <div class="field field-full actions">
+          <button id="addBtn" class="btn btn-accent" onclick="addProblem()">Save problem</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search by name -->
+    <div class="section">
+      <div class="section-header">
+        <h2>Find by name</h2>
+        <span class="section-num">02</span>
+      </div>
+      <div class="search-row">
+        <div class="field">
+          <label for="searchName">Problem name</label>
+          <input id="searchName" type="text" placeholder="Two Sum">
+        </div>
+        <button id="searchNameBtn" class="btn btn-secondary" onclick="searchByName()">Search</button>
+      </div>
+    </div>
+
+    <!-- Search by URL -->
+    <div class="section">
+      <div class="section-header">
+        <h2>Find by URL</h2>
+        <span class="section-num">03</span>
+      </div>
+      <div class="search-row">
+        <div class="field">
+          <label for="searchUrl">Problem URL</label>
+          <input id="searchUrl" type="url" placeholder="https://leetcode.com/…">
+        </div>
+        <button id="searchUrlBtn" class="btn btn-secondary" onclick="searchByURL()">Search</button>
+      </div>
+    </div>
+
+    <!-- Problems list -->
+    <div class="section">
+      <div class="refresh-row">
+        <h2>My log</h2>
+        <button class="btn btn-secondary btn-sm" onclick="loadProblems()">Refresh</button>
+      </div>
+
+      <!-- Bulk delete bar (hidden by default) -->
+      <div id="bulk-bar" class="bulk-bar" style="display:none">
+        <span id="bulk-count" class="bulk-count"></span>
+        <button id="bulkDeleteBtn" class="btn btn-danger btn-sm" onclick="deleteSelected()">Delete selected</button>
+      </div>
+
+      <!-- Subtle count -->
+      <div id="log-meta" class="log-meta"></div>
+
+      <div id="problems"></div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Load on page ready
+    document.addEventListener("DOMContentLoaded", loadProblems)
+  </script>
+</body>
+</html>
