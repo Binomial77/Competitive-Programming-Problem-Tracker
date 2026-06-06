@@ -1,4 +1,4 @@
-# Competitive Programming Problem Tracker
+# Problem Tracker
 
 A full-stack web application to log and track your DSA/competitive programming practice problems.
 
